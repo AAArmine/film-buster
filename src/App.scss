@@ -1,5 +1,4 @@
-@import "./constants/customColors/colors.scss";
-@import "animate.css";
+@import "./styles/constants/colors.scss";
 @import "react-toastify/dist/ReactToastify.css";
 
 @font-face {
@@ -26,8 +25,8 @@
 }
 body {
   margin: 0;
-  font: 300 11px/1.4 "Helvetica Neue", sans-serif;
-  color: #dce2f5;
+  font: 300 12px/1.4 "Helvetica Neue", sans-serif;
+  color: $primary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $primary-bg;
