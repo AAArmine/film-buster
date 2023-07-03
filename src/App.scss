@@ -30,8 +30,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $primary-bg;
-  overflow: hidden;
-  display: block;
+  // overflow: hidden;
+  // display: block;
   input,
   textarea {
     font-family: "Helvetica Neue", sans-serif;
