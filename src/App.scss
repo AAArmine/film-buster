@@ -1,0 +1,40 @@
+@import "./constants/customColors/colors.scss";
+@import "animate.css";
+@import "react-toastify/dist/ReactToastify.css";
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("./assets/fonts/helvetica-neu.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "La Belle Aurore";
+  src: url("./assets/fonts/LaBelleAurore.woff2") format("woff2"),
+    url("./assets/fonts/LaBelleAurore.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Coolvetica";
+  src: url("./assets/fonts/CoolveticaRg-Regular.woff2") format("woff2"),
+    url("./assets/fonts/CoolveticaRg-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  font: 300 11px/1.4 "Helvetica Neue", sans-serif;
+  color: #dce2f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $primary-bg;
+  overflow: hidden;
+  display: block;
+  input,
+  textarea {
+    font-family: "Helvetica Neue", sans-serif;
+  }
+}
