@@ -1,12 +1,45 @@
 import Title from "components/common/title";
-import React from "react";
 
 const Home = () => {
   return (
-    <div>
-      Home
-      <Title />
-    </div>
+    <section style={{ paddingTop: "100px" }}>
+      <div>
+        {" "}
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" /> <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+        Home
+        <Title text="ordinary title" />
+      </div>
+    </section>
   );
 };
 
