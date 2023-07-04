@@ -4,12 +4,15 @@ import { alternative } from "constants/colors";
 export const NavItemsCont = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 17px;
+  font-size: 16px;
   text-align: right;
   cursor: pointer;
   align-items: center;
   font-family: Coolvetica;
   letter-spacing: 2px;
+  @media (max-width: 1024px) {
+    display: none;
+  }
   li {
     display: block;
     width: 150px;

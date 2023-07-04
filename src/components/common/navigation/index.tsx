@@ -3,39 +3,39 @@ import { NavContainer } from "./navContainer";
 import Logo from "../logo/logo";
 import Button from "components/common/button";
 import { useEffect, useState } from "react";
-import { secondary } from "constants/colors";
+import { StyledSection } from "./navSection";
+import Modal from "components/common/modal";
+import MobileNavigation from "./mobileNav";
 
 const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll: EventListener = () => {
       const scrollTop = window.scrollY;
       if (scrollTop > 100) {
-        setIsScrolled(true);
+        setScrolled(true);
       } else {
-        setIsScrolled(false);
+        setScrolled(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log(isScrolled);
 
   return (
-    <section
-      style={{
-        position: "fixed", // Add the desired positioning style
-        top: 0, // Position the section at the top
-        width: "100%",
-        transition: "background-color 1s ease",
-        backgroundColor: isScrolled ? secondary : "#0606064f",
-        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.692)",
-      }}
-    >
+    <StyledSection scrolled={scrolled ? "scroll" : ""}>
       <nav>
         <NavContainer>
           <Logo />
@@ -43,11 +43,20 @@ const Navigation = () => {
             <li>HOME</li>
             <li>LATEST</li>
             <li>CONTACT</li>
-            <Button text="Subscribe" />
+            <Button text="Subscribe" onClick={showModal} />
+            <Modal
+              onOk={handleOk}
+              onCancel={() => setIsModalOpen(false)}
+              open={isModalOpen}
+              closable={true}
+              text="Subscribe to get our weekly newsletters"
+              title="Subscribe!"
+            />
           </NavItemsCont>
+          <MobileNavigation />
         </NavContainer>
       </nav>
-    </section>
+    </StyledSection>
   );
 };
 

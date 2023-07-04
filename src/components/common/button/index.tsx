@@ -1,11 +1,12 @@
 import { FC } from "react";
-import { TextPropsType } from "types/general";
+import { TextPropsType, FunctionPropsType } from "types/general";
 import styled from "styled-components";
-import { main, alternative, secondary } from "constants/colors";
+import { main, alternative, secondary, primary } from "constants/colors";
 
 const Btn = styled.button`
   padding: 10px 20px;
   background-color: ${main};
+  color: ${primary};
   display: block;
   border: none;
   border-radius: 30px;
@@ -18,10 +19,22 @@ const Btn = styled.button`
     transform: scale(0.95);
     font-weight: bold;
   }
+  &.disabled {
+    background-color: grey;
+    pointer-events: none;
+    cursor: error;
+  }
 `;
-
-const Button: FC<TextPropsType> = ({ text }) => {
-  return <Btn>{text}</Btn>;
+type ButtonProps = TextPropsType &
+  FunctionPropsType & {
+    disabled?: boolean;
+  };
+const Button: FC<ButtonProps> = ({ text, onClick, disabled }) => {
+  return (
+    <Btn onClick={onClick} className={disabled ? "disabled" : ""}>
+      {text}
+    </Btn>
+  );
 };
 
 export default Button;

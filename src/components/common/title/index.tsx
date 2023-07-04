@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { main } from "constants/colors";
 import { TextPropsType } from "types/general";
 
-const TitleContainer = styled.div`
+const TitleContainer = styled.h1`
   color: ${main};
   font-size: 30px;
   text-transform: uppercase;
