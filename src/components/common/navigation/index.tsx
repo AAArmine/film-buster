@@ -53,7 +53,7 @@ const Navigation = () => {
               title="Subscribe!"
             />
           </NavItemsCont>
-          <MobileNavigation />
+          <MobileNavigation showModal={showModal} />
         </NavContainer>
       </nav>
     </StyledSection>

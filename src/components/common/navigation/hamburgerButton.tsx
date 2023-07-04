@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { large, medium, small } from "constants/breakpoints";
+import { large } from "constants/breakpoints";
 
 export const HamburgerButton = styled.button`
   display: none;

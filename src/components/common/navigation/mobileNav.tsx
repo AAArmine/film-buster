@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, FC } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { HamburgerButton } from "./hamburgerButton";
 import { MobileMenu } from "./mobileMenu";
+import Button from "components/common/button";
 
-const MobileNavigation = () => {
+export type MobileNavigationPropsType = {
+  showModal: () => void;
+};
+const MobileNavigation: FC<MobileNavigationPropsType> = ({ showModal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -24,9 +28,10 @@ const MobileNavigation = () => {
         <li>
           LATEST <AiOutlineArrowRight />
         </li>
-        <li>
+        <li className="last">
           CONTACT <AiOutlineArrowRight />
         </li>
+        <Button text="Subscribe" onClick={showModal} />
       </MobileMenu>
     </>
   );

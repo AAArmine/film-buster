@@ -27,6 +27,9 @@ export const MobileMenu = styled.div`
   li {
     cursor: pointer;
     transition: transform 0.3s ease, color 0.3s ease;
+    &.last {
+      padding-bottom: 25px;
+    }
     &:hover {
       color: ${main};
       transform: scale(0.95);
@@ -38,6 +41,5 @@ export const MobileMenu = styled.div`
   }
   &.open {
     display: block;
-    /* max-height: 200px;  */
   }
 `;

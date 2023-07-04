@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, ChangeEvent } from "react";
 import { Modal } from "antd";
 import Button from "components/common/button";
 import Title from "components/common/title";
