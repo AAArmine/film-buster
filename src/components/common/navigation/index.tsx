@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { StyledSection } from "./navSection";
 import Modal from "components/common/modal";
 import MobileNavigation from "./mobileNav";
+import { Block } from "../block";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -37,24 +38,26 @@ const Navigation = () => {
   return (
     <StyledSection scrolled={scrolled ? "scroll" : ""}>
       <nav>
-        <NavContainer>
-          <Logo />
-          <NavItemsCont>
-            <li>HOME</li>
-            <li>LATEST</li>
-            <li>CONTACT</li>
-            <Button text="Subscribe" onClick={showModal} />
-            <Modal
-              onOk={handleOk}
-              onCancel={() => setIsModalOpen(false)}
-              open={isModalOpen}
-              closable={true}
-              text="Subscribe to get our weekly newsletters"
-              title="Subscribe!"
-            />
-          </NavItemsCont>
-          <MobileNavigation showModal={showModal} />
-        </NavContainer>
+        <Block>
+          <NavContainer>
+            <Logo />
+            <NavItemsCont>
+              <li>HOME</li>
+              <li>LATEST</li>
+              <li>CONTACT</li>
+              <Button text="Subscribe" onClick={showModal} />
+              <Modal
+                onOk={handleOk}
+                onCancel={() => setIsModalOpen(false)}
+                open={isModalOpen}
+                closable={true}
+                text="Subscribe to get our weekly newsletters"
+                title="Subscribe!"
+              />
+            </NavItemsCont>
+            <MobileNavigation showModal={showModal} />
+          </NavContainer>
+        </Block>
       </nav>
     </StyledSection>
   );

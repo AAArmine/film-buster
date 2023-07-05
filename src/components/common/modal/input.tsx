@@ -17,11 +17,9 @@ export const Input = styled.input`
     padding: 7px;
     border-radius: 10px;
   }
-
   ::placeholder {
     color: #999;
   }
-
   &:focus {
     outline: none;
   }

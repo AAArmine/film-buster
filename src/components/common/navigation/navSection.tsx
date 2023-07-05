@@ -7,6 +7,7 @@ type StyledSectionProps = {
 
 export const StyledSection = styled.section<StyledSectionProps>`
   position: fixed;
+  z-index: 2;
   top: 0;
   width: 100%;
   transition: background-color 1s ease;

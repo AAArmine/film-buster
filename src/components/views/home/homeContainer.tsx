@@ -1,21 +1,15 @@
 import styled from "styled-components";
-import { large } from "constants/breakpoints";
-import { alternative } from "constants/colors";
+import { large, medium, small } from "constants/breakpoints";
 
 export const HomeContainer = styled.section`
   padding-top: 120px;
-  padding: 120px 7% 0;
+  @media (max-width: ${medium}) {
+    padding-top: 60px;
+  }
   ul {
     display: flex;
     justify-content: space-between;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
     flex-wrap: wrap;
-    li {
-      width: 17%;
-      height: 250px;
-      background-color: ${alternative};
-    }
+    padding-top: 30px;
   }
 `;
