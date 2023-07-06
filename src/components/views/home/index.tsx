@@ -4,70 +4,58 @@ import axios from "services/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setMovieList } from "redux/slices/movieListSlice";
 import { RootState } from "redux/store";
-import { HomeContainer } from "./homeContainer";
+import { HomeContainer } from "./search/homeContainer";
 import { Block } from "components/common/block";
 import MovieItem from "./movieItem";
 import { Description } from "components/common/description";
-import { SearchInput } from "./searchInput";
 import { siteAnnounce } from "constants/content";
-import { BiSearch } from "react-icons/bi";
-import { SearchBtn } from "./searchBtn";
-import { SearchCont } from "./searchCont";
-import { Pagination } from "antd";
+import { Movie } from "redux/slices/movieListSlice";
+import Search from "./search";
+import PaginationSec from "./pagination";
 
 const Home = () => {
   const dispatch = useDispatch();
   const movieList = useSelector((state: RootState) => state.movieList);
+  const [searchMovie, setSearchMovie] = useState<Movie[]>([]);
+  const [searchInput, setSearchInput] = useState("");
   const [page, setPage] = useState<number>(1);
 
-  useEffect(() => {
-    const fetchMovieList = async () => {
-      try {
-        const response = await axios.get("/", {
-          params: {
-            s: "movie",
-            page: page,
-            apikey: process.env.REACT_APP_API_KEY,
-          },
-        });
+  const fetchMovieList = async () => {
+    try {
+      const response = await axios.get("/", {
+        params: {
+          s: "movie",
+          page: page,
+          apikey: process.env.REACT_APP_API_KEY,
+        },
+      });
+      dispatch(setMovieList(response.data.Search));
+    } catch (error) {
+      console.error("Error fetching movie list:", error);
+    }
+  };
 
-        const movieList = response.data.Search;
-        dispatch(setMovieList(movieList));
-      } catch (error) {
-        console.error("Error fetching movie list:", error);
-      }
-    };
+  useEffect(() => {
     fetchMovieList();
   }, [dispatch, page]);
-  console.log("here data", movieList.data);
 
+  const movieItems = searchMovie.length ? searchMovie : movieList.data;
   return (
     <HomeContainer>
       <Block>
         <Title text=" most popular movies" />
-        <SearchCont>
-          <SearchInput placeholder="Search movie by the title..." />
-          <SearchBtn>
-            <BiSearch />
-          </SearchBtn>
-        </SearchCont>
+        <Search
+          setSearchMovie={setSearchMovie}
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+        />
         <Description>{siteAnnounce}</Description>
         <ul>
-          {movieList.data.map((movie) => (
-            <MovieItem movieItem={movie} />
+          {movieItems.map((movie) => (
+            <MovieItem movieItem={movie} key={movie.imdbID} />
           ))}
         </ul>
-        <Pagination
-          total={100} // Total number of pages
-          defaultCurrent={1} // Default active page
-          pageSize={10} // Number of items per page
-          className="custom-pagination"
-          showSizeChanger={false} // Hide the page size changer component
-          onChange={(page, pageSize) => {
-            setPage(page);
-            console.log("Page changed:", page, pageSize);
-          }}
-        />
+        {!searchMovie.length && <PaginationSec setPage={setPage} />}
       </Block>
     </HomeContainer>
   );

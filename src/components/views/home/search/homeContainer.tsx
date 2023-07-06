@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { large, medium, small } from "constants/breakpoints";
+import {  medium } from "constants/breakpoints";
 
 export const HomeContainer = styled.section`
   padding-top: 120px;

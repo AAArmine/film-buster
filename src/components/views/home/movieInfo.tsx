@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Movie } from "redux/slices/movieListSlice";
 import styled from "styled-components";
 import { large, medium, small } from "constants/breakpoints";
-import { alternative, main, secondary } from "constants/colors";
+import { main, secondary } from "constants/colors";
 
 export const MoveInfoCont = styled.div`
   font-size: 12px;
