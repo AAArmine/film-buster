@@ -7,17 +7,28 @@ import { StyledSection } from "./navSection";
 import Modal from "components/common/modal";
 import MobileNavigation from "./mobileNav";
 import { Block } from "../block";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const showModal = () => {
     setIsModalOpen(true);
   };
-
   const handleOk = () => {
     setIsModalOpen(false);
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    contactSection?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToTop = () => {
+    const topSection = document.getElementById("topHome");
+    topSection?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -34,7 +45,6 @@ const Navigation = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   return (
     <StyledSection scrolled={scrolled ? "scroll" : ""}>
       <nav>
@@ -42,9 +52,15 @@ const Navigation = () => {
           <NavContainer>
             <Logo />
             <NavItemsCont>
-              <li>HOME</li>
-              <li>LATEST</li>
-              <li>CONTACT</li>
+              <li
+                onClick={() => {
+                  navigate("/");
+                  scrollToTop();
+                }}
+              >
+                HOME
+              </li>
+              <li onClick={scrollToContact}>CONTACT</li>
               <Button text="Subscribe" onClick={showModal} />
               <Modal
                 onOk={handleOk}

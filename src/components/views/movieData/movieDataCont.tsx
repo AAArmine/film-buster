@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { medium, small, large } from "constants/breakpoints";
-import { main, secondaryTitle } from "constants/colors";
+import { secondaryTitle } from "constants/colors";
 
 export const MovieDataContainer = styled.section`
-  padding-top: 120px;
+  padding: 180px 0 100px;
+  h2 {
+    @media (max-width: ${medium}) {
+      text-align: center;
+    }
+  }
   .content {
     display: flex;
     justify-content: flex-start;

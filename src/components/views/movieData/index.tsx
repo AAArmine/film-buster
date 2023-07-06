@@ -7,8 +7,8 @@ import Title from "components/common/title";
 import { movieFun } from "constants/content";
 import { MovieDetails } from "types/general";
 import DataItem from "./dataItem";
-import { BsStarFill } from "react-icons/bs";
 import { SecondaryTitle } from "components/common/title/secondaryTitle";
+import AdditionalData from "./additionalData";
 
 type LocationState = {
   movieId: string;
@@ -27,7 +27,6 @@ const MovieData = () => {
         },
       });
       const movieData = response.data;
-      console.log(movieData);
       setMovie(movieData);
     } catch (error) {
       console.error("Error fetching movie information:", error);
@@ -49,14 +48,16 @@ const MovieData = () => {
           />
           <div className="details">
             <Title text={movie?.Title || ""} />
-            <DataItem name="Actors" value={movie?.Actors} />
+            <DataItem name="Genre" value={movie?.Genre} />
             <DataItem name="Awards" value={movie?.Awards} />
             <DataItem name="Country" value={movie?.Country} />
             <DataItem name="Year" value={movie?.Year} />
           </div>
-          <div className="additionalDetails">
-            <BsStarFill />
-          </div>
+          <AdditionalData
+            actors={movie?.Actors}
+            plot={movie?.Plot}
+            imdbRating={movie?.imdbRating}
+          />
         </div>
       </MovieDataContainer>
     </Block>

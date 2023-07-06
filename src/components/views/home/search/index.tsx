@@ -32,7 +32,6 @@ const Search: FC<SearchPropsType> = ({
       } else {
         setSearchMovie(response.data.Search);
       }
-      console.log(response.data.Error);
     } catch (error) {
       console.error("Error fetching movie list:", error);
     }
@@ -62,7 +61,7 @@ const Search: FC<SearchPropsType> = ({
         className="toast"
         position="top-center"
         pauseOnHover
-        autoClose={7000}
+        autoClose={3000}
       />
     </SearchCont>
   );

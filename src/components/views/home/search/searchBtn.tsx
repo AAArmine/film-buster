@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { large, medium, small } from "constants/breakpoints";
-import { secondary, primary } from "constants/colors";
+import { large, small } from "constants/breakpoints";
+import { secondary } from "constants/colors";
 
 export const SearchBtn = styled.button`
   width: 150px;

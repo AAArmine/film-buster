@@ -9,15 +9,22 @@ export const MoviePoster = styled.li`
   background-size: cover;
   margin-bottom: 100px;
   position: relative;
+  border: 1px solid rgba(186, 186, 187, 0.267);
   cursor: pointer;
   &:hover div {
     visibility: visible;
+  }
+  .noImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .viewCont {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(31, 20, 128, 0.226);
+    background-color: rgba(31, 20, 128, 0.267);
     visibility: hidden;
     transition: visibility 0.2s ease;
     display: flex;

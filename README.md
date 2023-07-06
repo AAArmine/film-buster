@@ -1,12 +1,24 @@
+## Film Buster
+
+This project is a Progressive Web App (PWA) built with Create React App, incorporating the following technologies and libraries: styled components, React Router DOM, Axios, and React Redux Toolkit.
+
+Getting Started
+
+### `npm start`
+
+These instructions will help you set up and run the project on your local machine.
+
+Prerequisites
+To run the project, you need to have Node.js and npm (Node Package Manager) installed on your machine.
+
+Installation
+Clone the repository to your local machine.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

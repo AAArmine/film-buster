@@ -1,8 +1,7 @@
 import { FC } from "react";
 import { Movie } from "redux/slices/movieListSlice";
 import styled from "styled-components";
-import { large, medium, small } from "constants/breakpoints";
-import { main, secondary } from "constants/colors";
+import { secondary } from "constants/colors";
 
 export const MoveInfoCont = styled.div`
   font-size: 12px;
@@ -11,10 +10,7 @@ export const MoveInfoCont = styled.div`
   bottom: -100px;
   padding: 5px 0px;
   min-height: 100px;
-  /* background-color: ${secondary}; */
   z-index: 0;
-  /* color: ${main}; */
-
   .year {
     font-size: 12px;
     color: ${secondary};
@@ -26,12 +22,6 @@ export const MoveInfoCont = styled.div`
     text-transform: uppercase;
     font-weight: 800;
     display: block;
-  }
-  @media (max-width: ${large}) {
-  }
-  @media (max-width: ${medium}) {
-  }
-  @media (max-width: ${small}) {
   }
 `;
 

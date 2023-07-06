@@ -2,7 +2,7 @@ import { FC } from "react";
 import { TextPropsType, FunctionPropsType } from "types/general";
 import styled from "styled-components";
 import { main, alternative, secondary, primary } from "constants/colors";
-import { medium, small } from "constants/breakpoints";
+import { medium } from "constants/breakpoints";
 
 const Btn = styled.button`
   padding: 10px 20px;
@@ -34,6 +34,7 @@ type ButtonProps = TextPropsType &
   FunctionPropsType & {
     disabled?: boolean;
   };
+
 const Button: FC<ButtonProps> = ({ text, onClick, disabled }) => {
   return (
     <Btn onClick={onClick} className={disabled ? "disabled" : ""}>

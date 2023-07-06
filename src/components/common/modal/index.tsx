@@ -76,7 +76,7 @@ const ModalContent: FC<PromptModalPropsType> = ({
         className="toast"
         position="top-center"
         pauseOnHover
-        autoClose={7000}
+        autoClose={3000}
       />
     </>
   );

@@ -18,6 +18,9 @@ const MovieItem: FC<MovieItemPropsType> = ({ movieItem }) => {
           navigate("/movie", { state: { movieId: movieItem.imdbID } })
         }
       >
+        {movieItem.Poster === "N/A" && (
+          <span className="noImage">No Image</span>
+        )}
         <div className="viewCont">
           <span onClick={() => navigate("/")}>View</span>
         </div>

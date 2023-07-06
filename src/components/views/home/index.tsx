@@ -7,11 +7,12 @@ import { RootState } from "redux/store";
 import { HomeContainer } from "./search/homeContainer";
 import { Block } from "components/common/block";
 import MovieItem from "./movieItem";
-import { Description } from "components/common/description";
-import { siteAnnounce } from "constants/content";
+import { siteDesc } from "constants/content";
 import { Movie } from "redux/slices/movieListSlice";
 import Search from "./search";
 import PaginationSec from "./pagination";
+import { SecondaryTitle } from "components/common/title/secondaryTitle";
+import DescriptionSec from "./descriptionSec";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -41,21 +42,22 @@ const Home = () => {
 
   const movieItems = searchMovie.length ? searchMovie : movieList.data;
   return (
-    <HomeContainer>
+    <HomeContainer id="topHome">
       <Block>
-        <Title text=" most popular movies" />
+        <Title text="Discover and Explore with us!" />
         <Search
           setSearchMovie={setSearchMovie}
           searchInput={searchInput}
           setSearchInput={setSearchInput}
         />
-        <Description>{siteAnnounce}</Description>
+        <SecondaryTitle>{siteDesc}</SecondaryTitle>
         <ul>
           {movieItems.map((movie) => (
             <MovieItem movieItem={movie} key={movie.imdbID} />
           ))}
         </ul>
         {!searchMovie.length && <PaginationSec setPage={setPage} />}
+        <DescriptionSec />
       </Block>
     </HomeContainer>
   );

@@ -17,6 +17,10 @@ export const NavItemsCont = styled.div`
     display: block;
     width: 150px;
     transition: color 0.5s ease, transform 0.2s ease;
+    a.active {
+      color: ${alternative};
+      text-decoration: none;
+    }
   }
   li:hover {
     color: ${alternative};
